@@ -1,0 +1,156 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: linear-gradient(#179bd7, #52b8e7);
+    height: 100vh;
+    font-family: sans-serif;
+}
+
+input:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.container-main {
+    display: flex;
+    flex-wrap: wrap;
+    height: 580px;
+
+    width: 690px;
+    background-color: #fff;
+    border-left: 1px rgb(165, 156, 156) solid; 
+
+    margin: 20px auto 0 auto;
+}
+
+.mostra-etapa {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.titulo {
+    margin: 30px 0 0 95px;
+    color: rgb(22, 22, 22);
+}
+
+.caixa-topo {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px rgb(165, 156, 156) solid;
+
+    background-color: lightgray;
+    opacity: 1;
+}
+
+.caixa-topo:nth-child(1) {
+    border-right: 1px rgb(165, 156, 156) solid;
+}
+
+.caixa-topo:nth-child(2) {
+    border-right: 1px rgb(165, 156, 156) solid;
+}
+
+.caixa-topo.ativado {
+    background-color: #fff;
+    border-bottom: none;
+    animation: caixaAparece;
+
+    transition:0.3s ease-in;
+}
+
+@keyframes caixaAparece {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.formulario-info {
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto 0 auto;
+
+    width: 500px;
+    height: 500px; 
+    font-size: 14pt;
+}
+
+#nome {
+    margin-left: 56px;
+    width: 200px;
+    border: 1px lightgray solid;
+
+    padding: 5px;
+    border-radius: 20px;
+}
+
+#nome:focus {
+    border: 1px lightgray solid;
+}
+
+.form-idade {
+    margin-top: 20px;
+}
+
+#ano-de-nascimento {
+    width: 200px;
+    margin-left: 22px;
+    border: 1px lightgray solid;
+
+    padding: 5px;
+    border-radius: 20px; 
+}
+
+.form-cartao {
+    margin-top: 20px;
+}
+
+#cartao {
+    width: 200px;
+    border: 1px lightgray solid;
+    margin-left: 37px;
+
+    padding: 5px;
+    border-radius: 20px; 
+}
+
+.form-cpf {
+    margin-top: 20px;
+}
+
+#cpf {
+    width: 200px;
+    border: 1px lightgray solid;
+    margin-left: 65px;
+    
+    padding: 5px;
+    border-radius: 20px; 
+}
+
+.btn-avancar {
+    width: 100px;
+    margin: 20px auto 0 auto;
+    padding: 5px;
+
+    border: none;
+    background-color: #179bd7;
+    color: #fff;
+
+    font-size: 13pt;
+}
+
+.btn-avancar:hover {
+    cursor: pointer;
+    background-color: #2190c4;
+}
