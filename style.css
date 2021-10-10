@@ -38,8 +38,9 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .titulo {
-    margin: 30px 0 0 95px;
+    margin: 30px 0 ;
     color: rgb(22, 22, 22);
+    transition: 0.3s ease-in-out;
 }
 
 .caixa-topo {
@@ -74,6 +75,10 @@ input[type=number]::-webkit-inner-spin-button {
     to {
         opacity: 1;
     }
+}
+
+#conteudo {
+    margin: 50px auto 0 auto;
 }
 
 .formulario-info {
@@ -153,4 +158,77 @@ input[type=number]::-webkit-inner-spin-button {
 .btn-avancar:hover {
     cursor: pointer;
     background-color: #2190c4;
+}
+
+.conteudo {
+    transition: 0.4s ;
+}
+
+.conteudo.conteudo-some {
+    transform: translateX(-50px) translateY(-2px);
+    opacity: 0;
+}
+
+.conteudo2 {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 370px;
+    transition: 0.2s;
+    width: 1000px;
+    height: 500px;
+}
+
+.conteudo2 h2 {
+    width: 300px;
+}
+
+.conteudo2 img {
+    margin-top: 10px;
+    width: 310px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+.conteudo-direita-para-esquerda {
+    transform: translateX(-350px);
+}
+
+.confirmacao p {
+    font-size: 14pt;
+    margin-top: 180px;
+}
+
+.produto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.produto input {
+    margin-top: 26px;
+    border: none;
+    font-size: 13pt;
+
+    cursor: pointer;
+}
+
+.btn-cancelar {
+    padding: 11px 40px; 
+}
+
+.btn-comprar {
+    padding: 11px 40px;
+    background-color: rgb(16, 233, 81);
+    color: #fff;
+}
+
+.btn-voltar {
+    position: absolute;
+    right: 0;
+    bottom: 60px;
+
+    padding: 11px 50px;
+    background-color: #179bd7;
+    color: #fff;
 }
