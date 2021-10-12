@@ -6,6 +6,7 @@
 body {
     background: linear-gradient(#179bd7, #52b8e7);
     height: 100vh;
+   
     font-family: sans-serif;
 }
 
@@ -170,13 +171,16 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .conteudo2 {
-    margin-top: 50px;
+    margin-top: -610px;
     display: flex;
     flex-direction: row;
+
     margin-left: 370px;
     transition: 0.2s;
     width: 1000px;
+
     height: 500px;
+    transition: 0.4s ease-in;
 }
 
 .conteudo2 h2 {
@@ -190,8 +194,22 @@ input[type=number]::-webkit-inner-spin-button {
     border-radius: 5px;
 }
 
+.conteudo2.conteudo-some {
+    transform: translateX(-420px) ;
+    opacity: 0;
+}
+
 .conteudo-direita-para-esquerda {
     transform: translateX(-350px);
+}
+
+.conteudo-para-direita {
+    transform: translateX(100px);
+}
+
+.conteudo-esquerda-para-direita {
+    transform: translateX(100px);
+    opacity: 0;
 }
 
 .confirmacao p {

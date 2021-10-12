@@ -5,8 +5,6 @@ const PRIMEIRA_ETAPA = document.querySelector('.caixa1'),
       CONTEUDO = document.getElementById('conteudo'),
       CONTEUDO_DOIS = document.querySelector('.conteudo2')
      
-let  controleEtapa = 1
-
 function mostrarConteudo() {
     CONTEUDO.innerHTML = `
         <h1 class="titulo"><p>Preencha suas informações</p></h1>
@@ -30,21 +28,31 @@ function mostrarConteudo() {
                 <input  placeholder=" Apenas os números" type="number" name="cartao" id="cpf" maxlength="11" >
             </div>
 
-                <input type="button" class="btn-avancar" onclick="proximaEtapa()" value="Avançar">
+                <input type="button" class="btn-avancar" onclick="proximaEtapa(local = 0)" value="Avançar">
         </form>
     `
 }
 
-function proximaEtapa() {
-    if (controleEtapa == 1) {
+function proximaEtapa(local) {
+    if (local == 0) {
         PRIMEIRA_ETAPA.classList.remove('ativado')
         SEGUNDA_ETAPA.classList.add('ativado')
-        controleEtapa++
+        CONTEUDO_DOIS.classList.remove('conteudo-esquerda-para-direita')
         conteudoUmSome()
-    } else {
+    } 
+    
+    if (local == 1) {
         SEGUNDA_ETAPA.classList.remove('ativado')
         TERCEIRA_ETAPA.classList.add('ativado')
-    }    
+        deletaConteudoDois()
+    }
+}
+
+function voltarEtapa() {
+    PRIMEIRA_ETAPA.classList.add('ativado')
+    SEGUNDA_ETAPA.classList.remove('ativado')
+    CONTEUDO_DOIS.classList.add('conteudo-esquerda-para-direita')
+    CONTEUDO_SOME.classList.remove('conteudo-some')
 }
 
 function conteudoUmSome() {
@@ -54,28 +62,30 @@ function conteudoUmSome() {
 }
 
 function deletaConteudoUm() {  
-    CONTEUDO.innerHTML = ""
-    CONTEUDO_SOME.classList.remove('conteudo-some')
     adicionaConteudoDois()
 }
 
 function adicionaConteudoDois() {
     CONTEUDO_DOIS.innerHTML = `
     <div class="confirmacao">
-        <h2>É esse o produto que você quer adquir?</h2>
+        <h2>É esse o produto que você quer adquirir?</h2>
         <p>Kombi veia edição deluxe, por apenas R$ 500.000.000.000,00</p>
     </div>
         
     <div class="produto">
         <img src="http://3.bp.blogspot.com/-q8pecxxA2yo/UEYV-bHdCTI/AAAAAAAADH8/iUsA9eVpukM/s1600/Kombi_Luxo+1970.JPG">
         <div class="botoes-produto">
-            <input type="button" class="btn-cancelar" value="Cancelar"></input>
-            <input type="button" class="btn-comprar" value="Comprar"></input>
-            <input type="button" class="btn-voltar" value="Voltar"></input>
+            <input type="button" class="btn-cancelar"  onclick="proximaEtapa(local = 1)" value="Cancelar">
+            <input type="button" class="btn-comprar" onclick="proximaEtapa(local = 1)" value="Comprar">
+            <input type="button" class="btn-voltar" onclick="voltarEtapa()" value="Voltar">
         </div>
     </div>
     `
     setInterval( CONTEUDO_DOIS.classList.add('conteudo-direita-para-esquerda'), 200)
+}
+
+function deletaConteudoDois() {
+    CONTEUDO_DOIS.classList.add('conteudo-some')
 }
 
 mostrarConteudo()
