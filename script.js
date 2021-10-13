@@ -3,7 +3,8 @@ const PRIMEIRA_ETAPA = document.querySelector('.caixa1'),
       TERCEIRA_ETAPA = document.querySelector('.caixa3'),
       CONTEUDO_SOME = document.querySelector('.conteudo'),
       CONTEUDO = document.getElementById('conteudo'),
-      CONTEUDO_DOIS = document.querySelector('.conteudo2')
+      CONTEUDO_DOIS = document.querySelector('.conteudo2'),
+      CONTEUDO_TRES = document.querySelector('.conteudo3')
      
 function mostrarConteudo() {
     CONTEUDO.innerHTML = `
@@ -33,7 +34,7 @@ function mostrarConteudo() {
     `
 }
 
-function proximaEtapa(local) {
+function proximaEtapa(local, oQueFazer=-1) {
     if (local == 0) {
         PRIMEIRA_ETAPA.classList.remove('ativado')
         SEGUNDA_ETAPA.classList.add('ativado')
@@ -45,6 +46,13 @@ function proximaEtapa(local) {
         SEGUNDA_ETAPA.classList.remove('ativado')
         TERCEIRA_ETAPA.classList.add('ativado')
         deletaConteudoDois()
+    }
+
+    if (oQueFazer == 1) {
+        cancelarCompra()
+        console.log('cancelar')
+    } else if (oQueFazer == 2){
+        confirmarCompra() 
     }
 }
 
@@ -75,8 +83,8 @@ function adicionaConteudoDois() {
     <div class="produto">
         <img src="http://3.bp.blogspot.com/-q8pecxxA2yo/UEYV-bHdCTI/AAAAAAAADH8/iUsA9eVpukM/s1600/Kombi_Luxo+1970.JPG">
         <div class="botoes-produto">
-            <input type="button" class="btn-cancelar"  onclick="proximaEtapa(local = 1)" value="Cancelar">
-            <input type="button" class="btn-comprar" onclick="proximaEtapa(local = 1)" value="Comprar">
+            <input type="button" class="btn-cancelar"  onclick="proximaEtapa(local = 1, oQueFazer = 1)" value="Cancelar">
+            <input type="button" class="btn-comprar" onclick="proximaEtapa(local = 1, oQueFazer = 2)" value="Comprar">
             <input type="button" class="btn-voltar" onclick="voltarEtapa()" value="Voltar">
         </div>
     </div>
@@ -86,6 +94,38 @@ function adicionaConteudoDois() {
 
 function deletaConteudoDois() {
     CONTEUDO_DOIS.classList.add('conteudo-some')
+}
+
+function cancelarCompra() {
+    CONTEUDO_TRES.innerHTML = `
+    <div class="container-compra-cancelada">
+        <div class="texto-compra-cancelada">
+            <h2 class="titulo-compra-cancelada">Compra cancelada!</h2>
+            <h3 class="texto-cancelamento">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </h3>  
+        </div>
+      
+        <div class="contorno-img-cancelar">
+            <img src="https://img.icons8.com/ios/2x/circled-x.png">
+        </div>
+    </div>     
+    `
+}
+
+function confirmarCompra() {
+    CONTEUDO_TRES.innerHTML = `
+    <div class="container-compra-concluida">
+        <div class="texto-compra-aprovada">
+        <h2 class="titulo-compra-aprovada">Compra aprovada!</h2>
+        <h3 class="texto-confirmacao">Sua compra vai acabar chegando, algum dia. Mesmo que isso seja muito díficil de acontecer, já que nós não temos seu endereço.</h3>  
+        </div>
+      
+        <div class="contorno-img">
+            <img src="https://img.icons8.com/ios/2x/instagram-check-mark.png">
+        </div>
+    </div>     
+    ` 
 }
 
 mostrarConteudo()
